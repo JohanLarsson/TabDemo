@@ -1,0 +1,20 @@
+﻿<UserControl
+    x:Class="TabDemo.ListView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:TabDemo"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DataContext="{d:DesignInstance local:ListViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    DataContext="{local:Get {x:Type local:ListViewModel}}"
+    mc:Ignorable="d">
+    <ListBox ItemsSource="{Binding Items}" SelectedItem="{Binding Selected}">
+        <ListBox.ItemTemplate>
+            <DataTemplate DataType="{x:Type local:ItemViewModel}">
+                <TextBlock Text="{Binding Name}" />
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</UserControl>
